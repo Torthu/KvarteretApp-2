@@ -1,3 +1,7 @@
+Ext.Loader.setConfig({
+    enabled: true
+});
+
 Ext.application({
     name: 'KvarteretApp',
 
@@ -5,7 +9,11 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['Main'],
+    controllers: ['Arranger'],
+    views: ['Arranger', 'ArrangerList', 'Event', 'EventList', 'Festival', 'FestivalList', 'Main'],
+    models: ['Arranger', 'Event'],
+    stores: ['Arranger', 'Event'],
+    
 
     icon: {
         '57': 'resources/icons/Icon.png',
