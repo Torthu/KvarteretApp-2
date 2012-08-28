@@ -16,7 +16,7 @@ Ext.define("KvarteretApp.view.Main", {
                 xtype: 'arrangerList'
             },
             {
-                xtype: 'festivalList'
+                xtype: 'event'
             }
         ]
     }
