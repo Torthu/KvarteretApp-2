@@ -10,13 +10,18 @@ Ext.define("KvarteretApp.view.Main", {
 
         items: [
             {
-                xtype: 'eventList'
+                id: 'eventWrapper',
+                xtype: 'panel',
+                title: 'Event',
+                layout: 'card',
+                scroll: 'vertical',
+                items: [ {xtype:'eventList'}]
             },
             {
                 xtype: 'arrangerList'
             },
             {
-                xtype: 'event'
+                xtype: 'festivalList'
             }
         ]
     }

@@ -11,8 +11,8 @@ Ext.application({
 
     controllers: ['Arranger'],
     views: ['Arranger', 'ArrangerList', 'Event', 'EventList', 'Festival', 'FestivalList', 'Main'],
-    models: ['Arranger', 'Event'],
-    stores: ['Arranger', 'Event'],
+    models: ['Arranger', 'Event', 'Festival'],
+    stores: ['Arranger', 'Event', 'Festival'],
     
 
     icon: {
