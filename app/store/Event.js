@@ -4,6 +4,8 @@ Ext.define('KvarteretApp.store.Event', {
 
     config: {
         model: 'KvarteretApp.model.Event',
+        id: 'eventStore',
+        storeId: 'Event',
         autoLoad: true,
         grouper: {
             sorterFn: function (record){ return record.get('startDate'); },

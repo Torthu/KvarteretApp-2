@@ -9,7 +9,7 @@ Ext.define("KvarteretApp.view.EventList", {
 
         //sorters: 'startDate',
         grouped: true,
-        id: 'eventList',
+        
         render: function() {
         	 history.pushState("#eventList"); // not working as intended :P
         }

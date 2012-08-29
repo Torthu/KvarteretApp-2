@@ -13,6 +13,7 @@
 .meta {
 	border-bottom: 1px solid #ccc;
 	padding: 12px;
+	margin-bottom: 24px;
 }
 .meta.right {
 	border-left: 1px solid #ccc;
@@ -34,4 +35,11 @@
 	background: red;
 	padding: 12px;
 	color: #fff;
+	text-transform: uppercase;;
+	font-size: 1.5em;
+}
+.date {
+	background: #000;
+	color: #fff;
+	padding: 12px;
 }

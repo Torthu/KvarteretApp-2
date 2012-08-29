@@ -9,7 +9,9 @@ Ext.define('KvarteretApp.model.Event', {
         	'leadParagraph', 
         	'description', 
         	'linkout', // ?
-        	'startDate', 
+        	'startDate',
+            {name: 'startDateString', type: 'date', dateFormat: '%Y-%m-%d'},
+            {name: 'endDateString', type: 'date', dateFormat: 'Y-m-d'}, 
         	'startTime', 
         	'endDate', 
         	'endTime', 
