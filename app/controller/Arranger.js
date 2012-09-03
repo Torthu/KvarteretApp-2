@@ -24,6 +24,7 @@ Ext.define('KvarteretApp.controller.Arranger', {
                     // create instance of Arranger (arranger information view) with data from selected arranger
                     var arranger = Ext.create('KvarteretApp.view.Arranger', {
                         data: selectedItem.getSelection()[0].data,   
+                        scrollable: false
                     });
 
 
@@ -63,7 +64,7 @@ Ext.define('KvarteretApp.controller.Arranger', {
 
                     // deselect the entry in the arrangerList
                     arrangerList = Ext.getCmp('arrangerList');
-                    
+
                     arrangerList.deselectAll();
                 }
             },
