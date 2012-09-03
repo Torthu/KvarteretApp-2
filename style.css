@@ -31,15 +31,20 @@
 	font-weight: normal;
 }
 
-.singleEvent h1 {
+h1 {
 	background: red;
-	padding: 12px;
+	padding: 20px 12px !important;
 	color: #fff;
-	text-transform: uppercase;;
-	font-size: 1.5em;
+	text-transform: uppercase;
+	font-size: 1.5em !important;
 }
 .date {
 	background: #000;
 	color: #fff;
 	padding: 12px;
+}
+.imageWrapper img {
+	margin: 0 auto;
+	display: block;
+	max-width: 480px;
 }

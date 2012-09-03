@@ -7,7 +7,7 @@ Ext.define("KvarteretApp.view.Main", {
     ],
     config: {
         tabBarPosition: 'bottom',
-
+        id: 'main',
         items: [
             {
                 id: 'eventWrapper',

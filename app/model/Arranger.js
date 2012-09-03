@@ -5,6 +5,7 @@ Ext.define('KvarteretApp.model.Arranger', {
         	'id', 
         	'name', 
         	'logo',
+            'description',
             {name: 'logoUrl', mapping: 'logo.thumb.url'}
         ],
         

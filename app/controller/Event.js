@@ -1,26 +1,45 @@
 Ext.define('KvarteretApp.controller.Event', {
-	Extend: 'Ext.app.Controller',
+    extend: 'Ext.app.Controller',
 
-	config: {
-        stores: ['Arranger'],
-        //models: ['Event'],
-        //views: ['Event']
+    config: {
+        stores: ['Event'],
     },
 
-	/*onItemSelect: function(selection){
+    launch: function() {
+        console.log('Event controller says hi');
 
-		console.log('selected something');
-        //var myItem = selection.getSelection()[0];
-		
-	},*/
-
-	init: function () {
-		console.log('Event controller init');
-
-		/*this.control({
+         this.control({
+            /* events */
             '#eventList':{
-                select: this.onItemSelect
+                select: function (selectedItem) {
+
+                    /*  creates a prototype view using Event view
+                        sends in data from selected element which is handled by the views tpl
+                    */
+                    var event = Ext.create('KvarteretApp.view.Event', {
+                        data: selectedItem.getSelection()[0].data
+                    });
+
+                    eventWrapper = Ext.getCmp('eventWrapper');
+                    eventWrapper.add(event);
+                    eventWrapper.setActiveItem(event);
+
+                    eventList = Ext.getCmp('eventList');
+                    eventList.deselectAll();
+                }
             },
-       });*/
-	},
+            
+            'button[action=eventBack]':{
+                tap: function (selectedItem) {
+                    console.log('going back');
+                    
+                    eventWrapper.remove(Ext.getCmp('event'));
+                    eventWrapper.setActiveItem(eventList);
+
+                }
+            }
+       });
+	}
+
+
 });

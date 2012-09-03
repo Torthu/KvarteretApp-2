@@ -3,7 +3,7 @@ Ext.define("KvarteretApp.view.FestivalList", {
     xtype: 'festivalList',
     config: {
         title: 'Festivals',       
-        itemTpl: '{name}',
+        itemTpl: '{title}',
         store: 'Festival'
     },
 

@@ -3,29 +3,22 @@ Ext.define("KvarteretApp.view.Arranger", {
     xtype: 'arranger',
     config: {
         Title: 'Arranger',
-        xtype: 'arranger',
-        layout: 'vbox',
+        
+        // layout: 'vbox',
         id: 'arranger',
-        fullscreen: 'true',
+        // fullscreen: 'true',
 
-        scrollable: 'vertical',
+        // scrollable: 'vertical',
 
         tpl: [
             '<div class="singleArranger wrapper">',
             '   <div class="clearfix imageWrapper">',
                     '<img src="{logoUrl}" />',
-                    '<h1 class="text_center">{title}</h1>',
+                    '<h1 class="text_center">{name}</h1>',
+                    '<p class="description">{description}</p>',
                 '</div>',
                 '<h2>Events</h2>',
             '</div>'
-        ],
-        items: [
-            {   
-                xtype:'toolbar',
-                title: "KvarteretApp",
-                docked:'top',
-                items: [ {xtype:'button', ui:'back',text:'back', cls:'backButton', action:"arrangerBack"} ],
-            }
         ]
     }
 });

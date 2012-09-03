@@ -1,20 +1,16 @@
 Ext.define("KvarteretApp.view.EventList", {
     extend: 'Ext.List',
     xtype: 'eventList',
+    alias:'widget.eventList',
+
     config: {
         title: 'Events',       
         itemTpl: '<h2>{title}</h2>' +
         		 '<small>{startDate} {startTime} - {endDate} {endTime}</small>',
         store: 'Event',
 
-        //sorters: 'startDate',
-        grouped: true,
-        
-        render: function() {
-        	 history.pushState("#eventList"); // not working as intended :P
-        }
-
-		
+        sorters: 'startDate',
+        grouped: true	
         
 	            /*event.setHtml(
 	            	

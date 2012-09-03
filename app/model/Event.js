@@ -10,7 +10,10 @@ Ext.define('KvarteretApp.model.Event', {
         	'description', 
         	'linkout', // ?
         	'startDate',
-            {name: 'startDateString', type: 'date', dateFormat: '%Y-%m-%d'},
+            {name: 'startDateString', type: 'date',  convert: function (v, record) {
+                var date = new Date(record.startDate);
+                return date.toLocaleDateString();
+            }},
             {name: 'endDateString', type: 'date', dateFormat: 'Y-m-d'}, 
         	'startTime', 
         	'endDate', 
@@ -28,7 +31,7 @@ Ext.define('KvarteretApp.model.Event', {
         	'festival', 
         	'primaryPicture', 
         	{name: 'covercharge', defaultValue: 'uspesifisert'},
-            {name: 'primaryPictureUrl', mapping: 'pimaryPicture["url"]', defaultValue: 'trololol'}
+            {name: 'primaryPictureUrl', mapping: 'pimaryPicture.url', defaultValue: ''}
         ],
 
        
