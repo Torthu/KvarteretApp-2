@@ -57,10 +57,13 @@ Ext.define('KvarteretApp.controller.Arranger', {
                     // arrangerWrapper = Ext.getCmp('arrangerWrapper');
 
                     // add single arranger view to the wrapper
-                    Ext.Viewport.add(singleArrangerWrapper);
+                    Ext.Viewport.add(singleArrangerWrapper); // add to stack function?
                     
                     // make it active
-                    Ext.Viewport.setActiveItem(singleArrangerWrapper);
+                    // Ext.Viewport.setActiveItem(singleArrangerWrapper);
+
+                    // this.getApplication().fireEvent('stackForward', singleArrangerWrapper);
+                    stackForward(singleArrangerWrapper);
 
                     // deselect the entry in the arrangerList
                     arrangerList = Ext.getCmp('arrangerList');
@@ -72,13 +75,15 @@ Ext.define('KvarteretApp.controller.Arranger', {
                 tap: function (selectedItem) {
                     // destroy the created view
                     // arrangerWrapper.remove(Ext.getCmp('arranger'));
-                    Ext.Viewport.remove(Ext.getCmp('singleArrangerWrapper'));
+                    // Ext.Viewport.remove(Ext.getCmp('singleArrangerWrapper'));
 
                     Ext.getStore('Event').clearFilter();
 
+                    stackBack();
+
                     // set arrangerList as active view
                     // arrangerWrapper.setActiveItem(arrangerList);
-                    Ext.Viewport.setActiveItem(Ext.getCmp('main'));
+                    // Ext.Viewport.setActiveItem(Ext.getCmp('main'));
                 }
             },
        });
