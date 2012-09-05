@@ -5,27 +5,25 @@ Ext.define("KvarteretApp.view.Main", {
         'Ext.Video',
         'KvarteretApp.view.EventList'
     ],
-    config: {
+
+      xtype: 'tabpanel',
+      config: {
         tabBarPosition: 'bottom',
         id: 'main',
         items: [
             {
-                id: 'eventWrapper',
-                xtype: 'panel',
-                title: 'Events',
-                layout: 'card',
-                items: [ {xtype:'eventList', id:'eventList'}]
+              xtype:'eventList', 
+              id:'eventList'
             },
             {
-                id: 'arrangerWrapper',
-                xtype: 'panel',
-                title: 'Arrangers',
-                layout: 'card',
-                items: [ {xtype:'arrangerList'}]
+                xtype:'arrangerList',
+                id: 'arrangerList'
             },
             {
-                xtype: 'festivalList'
+                xtype: 'festivalList',
+                id: 'festivalList'
             }
         ]
-    }
+    }  
+   
 });

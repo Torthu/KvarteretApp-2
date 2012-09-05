@@ -3,11 +3,10 @@ Ext.define("KvarteretApp.view.SingleArrangerWrapper", {
     xtype: 'singleArrangerWrapper',
     config: {
         Title: 'Arranger',
-        
+        autoDestroy: true,
         layout: 'vbox',
         id: 'singleArrangerWrapper',
         fullscreen: 'true',
-		// align: 'stretch',
         scrollable: false,
 
         items: [

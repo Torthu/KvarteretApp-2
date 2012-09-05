@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "no.thunemedia.KvarteretApp"
+        version   = "0.2.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Kvarteret</name>
+
+    <description>
+        Events and information from Det Akademiske Kvarter 
+    </description>
+
+    <author href="http://thunemedia.no" email="torstein@thunemedia.no">
+        Torstein Thune
+    </author>
+
+    <preference name="phonegap-version" value="2.0.0" />
+
+</widget>

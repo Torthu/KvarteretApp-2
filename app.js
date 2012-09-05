@@ -9,7 +9,7 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    controllers: ['Arranger', 'Event'],
+    controllers: ['Arranger', 'Event', 'Main'],
     views: ['Arranger', 'ArrangerList', 'Event', 'EventList', 'Festival', 'FestivalList', 'Main'],
     models: ['Arranger', 'Event', 'Festival'],
     stores: ['Arranger', 'Event', 'Festival'],
