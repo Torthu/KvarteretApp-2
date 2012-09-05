@@ -35,11 +35,15 @@ function stackForward(view) {
 function stackBack(view) {
 	console.log('going back');
 
+	var viewToRemove = KvarteretApp.Stack[KvarteretApp.Stack.length-1];
+
 	Ext.Viewport.setActiveItem(Ext.getCmp(KvarteretApp.Stack[KvarteretApp.Stack.length-2]));
 
-	Ext.Viewport.remove(Ext.getCmp(KvarteretApp.Stack[KvarteretApp.Stack.length-1]));
-
 	KvarteretApp.Stack.pop();
+
+	if(!Ext.Array.contains(KvarteretApp.Stack, viewToRemove)) {
+		Ext.Viewport.remove(Ext.getCmp(viewToRemove));
+	}
 
 	
 }

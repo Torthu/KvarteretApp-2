@@ -5,7 +5,6 @@ Ext.define("KvarteretApp.view.SingleArrangerWrapper", {
         Title: 'Arranger',
         autoDestroy: true,
         layout: 'vbox',
-        id: 'singleArrangerWrapper',
         fullscreen: 'true',
         scrollable: false,
 

@@ -23,7 +23,8 @@ Ext.define("KvarteretApp.view.Event", {
 				'<div class="right half text_center meta">Age: {age_limit}</div>',
 				'<div class="lead">{leadParagraph}</div>',
 				'<div class="description">{description}</div>',
-			'</div>'
+			'</div>',
+			'<h3>Arrangør</h3>'
 		],
 		items: [
 			{	
