@@ -18,4 +18,7 @@
 
     <preference name="phonegap-version" value="2.0.0" />
 
+    <preference name="permissions" value="none"/>
+    <access origin="http://kvarteret.no" browserOnly="true" />
+
 </widget>
