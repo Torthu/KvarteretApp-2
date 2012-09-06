@@ -38,7 +38,7 @@ Ext.define('KvarteretApp.model.Event', {
         
         proxy: {
             type: 'jsonp',
-            url: 'http://events.kvarteret.no/api/json/filteredEvents/list',
+            url: 'http://events.kvarteret.no/api/json/filteredEvents/list?limit=100',
             reader: {
                 type: 'json',
                 rootProperty: 'data'

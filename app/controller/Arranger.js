@@ -56,10 +56,6 @@ Ext.define('KvarteretApp.controller.Arranger', {
                             ]
                         });
 
-
-                        // get the wrapper
-                        // arrangerWrapper = Ext.getCmp('arrangerWrapper');
-
                         // add single arranger view to the wrapper
                         Ext.Viewport.add(singleArrangerWrapper); // add to stack function?
                         
