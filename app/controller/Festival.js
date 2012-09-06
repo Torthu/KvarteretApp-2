@@ -25,6 +25,43 @@ Ext.define('KvarteretApp.controller.Festival', {
 	                        id: 'festival-' + selectedItem.getSelection()[0].data.id
 	                    });
 
+	                    var eventStore = Ext.getStore('Event');
+	                    eventStore.filter("festival_id", selectedItem.getSelection()[0].data.id);
+
+                        // create new instance of eventList
+                        var eventList = Ext.create('KvarteretApp.view.EventList', {
+                            store: eventStore,
+                            scrollable: false,
+                            flex: 1
+                        });
+
+                        
+                        festival.add(eventList);
+
+                        var arrangerStore = Ext.getStore('Arranger');
+
+                        var arrangerData = [];
+
+                        console.log(selectedItem.getSelection()[0].data.arrangers);
+
+                        for(arrangerId in selectedItem.getSelection()[0].data.arrangers) {
+                        	arrangerData.push( arrangerStore.getAt( arrangerStore.find("id", arrangerId.id) ));
+                        	console.log(arrangerId.id);
+                        	console.log(arrangerStore.getAt( arrangerStore.find("id", arrangerId.id)));
+                        }
+	                   
+
+	                    console.log(arrangerData);
+
+	                    for(arranger in arrangerData) {
+	                    	festival.add({
+		                    	xtype: 'button',
+		                    	text: arranger.name,
+		                    	action: "openArranger",
+		                    	id: arranger.id
+	                    	});
+	                    }
+	                    
 	                    
 	                    stackForward(festival);
 
