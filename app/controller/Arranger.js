@@ -1,11 +1,13 @@
 function openArranger(arrangerId) {
         console.log('opening arranger with id: ' + arrangerId);
 
+        // see if view is already generated and in the stack
         if(Ext.getCmp('singleArrangerWrapper-' + arrangerId)) {
             stackForward(Ext.getCmp('singleArrangerWrapper-' + arrangerId));
 
         } else {
 
+            // get arranger data
             var arrangerStore = Ext.getStore('Arranger');
             var arrangerData = arrangerStore.getAt( arrangerStore.find("id", arrangerId) ).data;
 
@@ -21,9 +23,10 @@ function openArranger(arrangerId) {
             });
 
 
-
-
-            // eventStore.filter("arranger_id", selectedItem.id);
+            /*  Check if events for arranger exists,
+                if not create a new store as a copy of KvarteretApp.store.Event with appropriate filter
+                store is destroyed in KvarteretApp.controllers.Main.stackBack() 
+            */
             var localEventStore = Ext.getStore('eventStore-' + arrangerId);
             if(localEventStore == undefined) {
 
@@ -65,8 +68,7 @@ function openArranger(arrangerId) {
             });
 
             
-
-            // // add everything to wrapper
+            // add everything to wrapper
             singleArrangerWrapper.add({
                 xtype: 'panel',
                 flex: 1,
@@ -77,6 +79,7 @@ function openArranger(arrangerId) {
                 ]
             });
 
+            // add to view and set as active
             stackForward(singleArrangerWrapper);
         }
 

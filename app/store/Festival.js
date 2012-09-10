@@ -4,6 +4,7 @@ Ext.define('KvarteretApp.store.Festival', {
 
     config: {
         model: 'KvarteretApp.model.Festival',
-        autoLoad: true
+        autoLoad: true,
+        id: 'festivalStore'
     }
 });

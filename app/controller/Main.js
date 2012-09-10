@@ -8,19 +8,14 @@ Ext.define('KvarteretApp.controller.Main', {
     // }
 
     launch: function() {
-    	console.log('Main controller says hi')
-    	
+    	console.log('Main controller says hi');
 
-    	// not working, should implement instead of hackish functions
-    	// this.control({
-    	// 	'': {
-    	// 		stackForward: function(view) {
-    	// 			console.log('event triggered');
-					// KvarteretApp.push(viewName);
-					// Ext.Viewport.setActiveItem(viewName);
-    	// 		}
-    	// 	}
-    	// });
+    	// remove festivallist and store if no festivals exist
+    	if(Ext.getStore('Festival').getTotalCount() == null) {
+    		console.log('KvarteretApp.controller.Main: No festivals found, removing view and store from DOM');
+    		Ext.getCmp('main').remove(Ext.getCmp('festivalList'));
+    		Ext.getStore('Festival').destroy();
+    	}
     }
 
 });
@@ -28,7 +23,7 @@ Ext.define('KvarteretApp.controller.Main', {
 KvarteretApp.Stack = ['main'];
 
 function stackForward(view) {
-	console.log('going forward');
+	console.log('KvarteretApp.controller.Main.stackForward: going forward');
 	KvarteretApp.Stack.push(view.getId());
 	Ext.Viewport.setActiveItem(view);
 }
@@ -36,7 +31,7 @@ function stackForward(view) {
 /*	Destroys active view in order to free up the DOM
 	Destroys potential ad hoc store */
 function stackBack(view) {
-	console.log('going back');
+	console.log('KvarteretApp.controller.Main.stackBack: going back');
 
 	var viewToRemove = KvarteretApp.Stack[KvarteretApp.Stack.length-1];
 
