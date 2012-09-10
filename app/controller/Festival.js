@@ -30,10 +30,13 @@ Ext.define('KvarteretApp.controller.Festival', {
 
                         // create new instance of eventList
                         var eventList = Ext.create('KvarteretApp.view.EventList', {
-                            store: eventStore,
+                        	data: eventStore.getData(),
+                            // store: eventStore,
                             scrollable: false,
                             flex: 1
                         });
+
+                        eventStore.clearFilter();
 
                         
                         festival.add(eventList);
@@ -74,6 +77,8 @@ Ext.define('KvarteretApp.controller.Festival', {
             'button[action=festivalBack]':{
                 tap: function (selectedItem) {
                     
+
+
                     // eventWrapper.remove(Ext.getCmp('event'));
                     // eventWrapper.setActiveItem(eventList);
                     // Ext.Viewport.remove(Ext.getCmp('event'));

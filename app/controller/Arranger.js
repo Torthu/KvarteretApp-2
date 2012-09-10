@@ -5,11 +5,7 @@ Ext.define('KvarteretApp.controller.Arranger', {
         stores: ['Arranger', 'Event'],
     },
 
-    // refs: {
-    //     {}
-    // }
-
-    launch: function() {
+     launch: function() {
         console.log('Arranger controller says hi');
 
          this.control({
@@ -78,8 +74,6 @@ Ext.define('KvarteretApp.controller.Arranger', {
                     // arrangerWrapper.remove(Ext.getCmp('arranger'));
                     // Ext.Viewport.remove(Ext.getCmp('singleArrangerWrapper'));
 
-                    Ext.getStore('Event').clearFilter();
-
                     stackBack();
 
                     // set arrangerList as active view
@@ -112,19 +106,53 @@ Ext.define('KvarteretApp.controller.Arranger', {
 
 
 
-                        // get Event store and set filter to display only the selected arranger's events
-                        var store = Ext.getStore('Event');
-                        store.filter("arranger_id", selectedItem.id);
+
+                        // eventStore.filter("arranger_id", selectedItem.id);
+                        var localEventStore = Ext.getStore('eventStore-' + selectedItem.id);
+                        if(localEventStore == undefined) {
+
+                            var eventStore = Ext.getStore('Event');
+
+                            var records = [];
+                            eventStore.each(function(r){
+                                records.push(r.copy());
+                            });
+
+                            console.log('Creating local store with id: eventStore-' + selectedItem.id);
+                            localEventStore = new Ext.data.Store({
+                                // recordType: eventStore.recordType,
+                                requires: 'KvarteretApp.model.Event',
+
+                                model: 'KvarteretApp.model.Event',
+                                id: 'eventStore-' + selectedItem.id,
+                                storeId: 'Event',
+                                autoLoad: true,
+                                grouper: {
+                                    sorterFn: function (record){ return record.get('startDate'); },
+                                    groupFn: function (record) { return record.get('startDate'); } 
+                                }
+                                
+                            });
+
+                            localEventStore.add(records);
+
+                            localEventStore.filter("arranger_id", selectedItem.id);
+                        } else {
+                            console.log('Using existing store: ' + localEventStore.getId());
+                        }
 
                         // create new instance of eventList
                         var arrangerEventList = Ext.create('KvarteretApp.view.EventList', {
-                            store: store,
+                            store: localEventStore,
                             id: 'arrangerEventList',
                             scrollable: false,
-                            flex: 1
+                            flex: 1,
+                            grouped: true
                         });
 
-                        // add everything to wrapper
+                        
+
+                        // // add everything to wrapper
                         singleArrangerWrapper.add({
                             xtype: 'panel',
                             flex: 1,
@@ -136,16 +164,18 @@ Ext.define('KvarteretApp.controller.Arranger', {
                         });
 
 
-                        // get the wrapper
-                        // arrangerWrapper = Ext.getCmp('arrangerWrapper');
+                        // // get the wrapper
+                        // // arrangerWrapper = Ext.getCmp('arrangerWrapper');
 
-                        // add single arranger view to the wrapper
-                        Ext.Viewport.add(singleArrangerWrapper); // add to stack function?
+                        // // add single arranger view to the wrapper
+                        // Ext.Viewport.add(singleArrangerWrapper); // add to stack function?
                         
-                        // make it active
-                        // Ext.Viewport.setActiveItem(singleArrangerWrapper);
+                        // // make it active
+                        // // Ext.Viewport.setActiveItem(singleArrangerWrapper);
 
-                        // this.getApplication().fireEvent('stackForward', singleArrangerWrapper);
+                        // // this.getApplication().fireEvent('stackForward', singleArrangerWrapper);
+
+
                         stackForward(singleArrangerWrapper);
                     }
                 }

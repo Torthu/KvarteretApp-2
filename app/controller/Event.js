@@ -26,7 +26,8 @@ Ext.define('KvarteretApp.controller.Event', {
 	                    });
 
 	                    if(selectedItem.getSelection()[0].data.festival_id) {
-	                    	console.log('festival!');
+	                    	var festivalStore = Ext.getStore('Festival');
+	                   		var festivalData = festivalStore.getAt( festivalStore.find("id", selectedItem.getSelection()[0].data.festival_id) ).data;
 	                    }
 
 	                    if(selectedItem.getSelection()[0].data.arranger_id) {
