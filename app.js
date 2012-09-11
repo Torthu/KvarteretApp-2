@@ -10,7 +10,7 @@ Ext.application({
     ],
 
     controllers: ['Arranger', 'Event', 'Festival', 'Main'],
-    views: ['Arranger', 'ArrangerList', 'Event', 'EventList', 'Festival', 'FestivalList', 'Main'],
+    views: ['Arranger', 'ArrangerList', 'Event', 'EventList', 'Festival', 'FestivalList', 'MainMenu'],
     models: ['Arranger', 'Event', 'Festival'],
     stores: ['Arranger', 'Event', 'Festival'],
     
@@ -47,7 +47,8 @@ Ext.application({
                 {
                     xtype: 'button',
                     action: 'mainMenu',
-                    iconCls: 'people',
+                    id: 'mainMenuButton',
+                    text: 'menu',
                     docked: 'right'
                 }
             ]
@@ -64,6 +65,9 @@ Ext.application({
             {
                 xtype: 'festivalList',
                 id: 'festivalList'
+            },
+            {
+                xtype: 'mainMenu'
             });
     },
 

@@ -20,7 +20,7 @@ Ext.define('KvarteretApp.controller.Main', {
     	this.control({
     		'button[action=mainMenu]': {
     			tap: function () {
-    				stackBack();
+    				openMenu();
     				
     			}
     		}
@@ -29,13 +29,32 @@ Ext.define('KvarteretApp.controller.Main', {
 
 });
 
-KvarteretApp.Stack = ['main'];
+KvarteretApp.Stack = ['mainMenu', 'arrangerList', 'eventList'];
+
+function openMenu() {
+
+	if(KvarteretApp.Stack[KvarteretApp.Stack.length-1] != "mainMenu") {
+		if(!inStack('mainMenu')) {
+			stackForward(Ext.create('KvarteretApp.view.MainMenu'));
+		} else {
+			stackForward(Ext.getCmp('mainMenu'));
+		}
+	} else {
+		stackBack();
+	}
+
+	
+}
+
+function inStack(viewId) {
+	return Ext.Array.contains(KvarteretApp.Stack, viewId);
+}
 
 function stackForward(view) {
 	console.log('KvarteretApp.controller.Main.stackForward: going forward');
 
 	// add view to viewport
-	if(!Ext.Array.contains(KvarteretApp.Stack, view.getId())) {
+	if(!inStack(view.getId())) {
 		Ext.Viewport.add(view);
 	}
 

@@ -1,6 +1,5 @@
 body {
 	line-height: 1.6;
-	background: #fff;
 }
 
 .left {
@@ -69,5 +68,20 @@ h2.black {
 	background: black;
 }
 #mainBar {
-	background: #E5190F !important;
+	background: -webkit-linear-gradient(top, rgba(241,60,50,1) 0%,rgba(188,22,14,1) 100%); 
+	background: linear-gradient(to bottom, rgba(241,60,50,1) 0%,rgba(188,22,14,1) 100%); /* W3C */
+}
+
+#mainMenuButton {
+	background: none;
+	border-radius: 0;
+	border: none;
+	border-right: 1px solid #AC211A;
+	position:relative;
+}
+#mainMenuButton:after {
+	position: absolute;
+	height: 100%;
+	right:-2px;
+	border-right: 1px solid blue;
 }
