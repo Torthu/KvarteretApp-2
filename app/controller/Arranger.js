@@ -111,6 +111,11 @@ Ext.define('KvarteretApp.controller.Arranger', {
                 tap: function (selectedItem) {
                    openArranger(selectedItem.id);
                 }
+            },
+            'button[action=openArrangerList]': {
+                tap: function () {
+                    stackForward(Ext.getCmp('arrangerList'));
+                }
             }
        });
     }

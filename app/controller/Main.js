@@ -32,17 +32,17 @@ Ext.define('KvarteretApp.controller.Main', {
 KvarteretApp.Stack = ['mainMenu', 'arrangerList', 'eventList'];
 
 function openMenu() {
-
+	// is mainmenu the active card?
 	if(KvarteretApp.Stack[KvarteretApp.Stack.length-1] != "mainMenu") {
+		// is mainmenu in the stack at all?
 		if(!inStack('mainMenu')) {
-			stackForward(Ext.create('KvarteretApp.view.MainMenu'));
+			stackForward(Ext.create('KvarteretApp.view.MainMenu')); // add mainmenu
 		} else {
-			stackForward(Ext.getCmp('mainMenu'));
+			stackForward(Ext.getCmp('mainMenu')); // set mainmenu as active
 		}
 	} else {
-		stackBack();
+		stackBack(); // remove mainmenu
 	}
-
 	
 }
 
@@ -79,7 +79,7 @@ function stackBack(view) {
 	KvarteretApp.Stack.pop();
 
 	// check if view is still in stack, if not: remove
-	if(!Ext.Array.contains(KvarteretApp.Stack, viewToRemove)) {
+	if(inStack(viewToRemove)) {
 		console.log('Trying to remove view with id: ' + viewToRemove);
 		Ext.Viewport.remove(Ext.getCmp(viewToRemove));
 

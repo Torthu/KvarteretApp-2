@@ -69,6 +69,11 @@ Ext.define('KvarteretApp.controller.Event', {
                     stackBack();
 
                 }
+            },
+            'button[action=openEventList]': {
+                tap: function () {
+                    stackForward(Ext.getCmp('eventList'));
+                }
             }
        });
 	}

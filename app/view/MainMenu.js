@@ -5,13 +5,13 @@ Ext.define("KvarteretApp.view.MainMenu", {
 	    id: 'mainMenu',
 	    items: [
 	        {
-	        	xtype: 'panel',
+	        	xtype: 'button',
 	        	html: 'Upcoming Events',
 	        	action: 'openEventList',
 	        	cls: 'menu_item'
 	        },
 	        {
-	        	xtype: 'panel',
+	        	xtype: 'button',
 	        	html: 'Arrangers',
 	        	action: 'openArrangerList',
 	        	cls: 'menu_item' 

@@ -56,7 +56,7 @@ Ext.application({
         // Ext.Viewport.add(Ext.create('KvarteretApp.view.Main'));
         Ext.Viewport.add({
               xtype:'eventList', 
-              id:'eventList'
+              id: 'eventList'
             },
             {
                 xtype:'arrangerList',
