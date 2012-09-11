@@ -39,7 +39,6 @@ function openArranger(arrangerId) {
 
                 console.log('Creating local store with id: eventStore-' + arrangerId);
                 localEventStore = new Ext.data.Store({
-                    // recordType: eventStore.recordType,
                     requires: 'KvarteretApp.model.Event',
 
                     model: 'KvarteretApp.model.Event',

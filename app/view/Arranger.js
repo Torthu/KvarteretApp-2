@@ -17,7 +17,6 @@ Ext.define("KvarteretApp.view.Arranger", {
                     '<h1 class="text_center">{name}</h1>',
                     '<p class="description">{description}</p>',
                 '</div>',
-                '<h2 clss="black">Events</h2>',
             '</div>'
         ]
     }
