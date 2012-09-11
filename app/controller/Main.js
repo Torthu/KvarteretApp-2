@@ -11,11 +11,20 @@ Ext.define('KvarteretApp.controller.Main', {
     	console.log('Main controller says hi');
 
     	// remove festivallist and store if no festivals exist
-    	if(Ext.getStore('Festival').getTotalCount() == null) {
-    		console.log('KvarteretApp.controller.Main: No festivals found, removing view and store from DOM');
-    		Ext.getCmp('main').remove(Ext.getCmp('festivalList'));
-    		Ext.getStore('Festival').destroy();
-    	}
+    	// if(Ext.getStore('Festival').getTotalCount() == null) {
+    	// 	console.log('KvarteretApp.controller.Main: No festivals found, removing view and store from DOM');
+    	// 	// Ext.getCmp('main').remove(Ext.getCmp('festivalList'));
+    	// 	Ext.getStore('Festival').destroy();
+    	// }
+
+    	this.control({
+    		'button[action=mainMenu]': {
+    			tap: function () {
+    				stackBack();
+    				
+    			}
+    		}
+	    });
     }
 
 });
@@ -24,7 +33,16 @@ KvarteretApp.Stack = ['main'];
 
 function stackForward(view) {
 	console.log('KvarteretApp.controller.Main.stackForward: going forward');
+
+	// add view to viewport
+	if(!Ext.Array.contains(KvarteretApp.Stack, view.getId())) {
+		Ext.Viewport.add(view);
+	}
+
+	// add view to stack
 	KvarteretApp.Stack.push(view.getId());
+
+	// set view as active
 	Ext.Viewport.setActiveItem(view);
 }
 

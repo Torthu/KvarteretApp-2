@@ -17,7 +17,6 @@ Ext.define('KvarteretApp.model.Event', {
             }},
             'startTime',
             {name: 'startTimeShort', type: 'string',  convert: function (v, record) {
-                console.log(record);
                 return record.data.startTime.substr(0,5);
             }},
         	'endDate',
@@ -32,7 +31,6 @@ Ext.define('KvarteretApp.model.Event', {
             }},
         	'endTime',
             {name: 'endTimeShort', type: 'string',  convert: function (v, record) {
-                console.log(record);
                 return record.data.endTime.substr(0,5);
             }},
             {name: 'age_limit', defaultValue: '20, 18 m/ studentbevis'}, 
@@ -42,9 +40,25 @@ Ext.define('KvarteretApp.model.Event', {
         	'festival_id', 
         	'created_at', 
         	'updated_at', 
-        	'commonLocation', 
-        	'arranger', 
+        	'commonLocation',
+            {name: 'locationName', type:'string', convert: function (v, record) {
+                if(record.data.customLocation) {
+                    return record.data.customLocation;
+                }
+                return record.data.commonLocation.name;
+            }},
+        	'arranger',
+            {name: 'arrangerName', type: 'string', mapping: 'arranger.name'},
         	'categories', 
+            {name: 'categoriesString', type: 'string', convert: function (v, record) {
+
+                var categoryString = [];
+                for(i=0; i<record.data.categories.length; i++) {
+                    categoryString.push(record.data.categories[i].name);
+                }
+                return categoryString.join(", ");
+                
+            }},
         	'festival', 
         	'primaryPicture', 
         	{name: 'covercharge', defaultValue: 'uspesifisert'},

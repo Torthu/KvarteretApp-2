@@ -23,16 +23,8 @@ Ext.define("KvarteretApp.view.Event", {
 				'<div class="right half text_center meta">Age: {age_limit}</div>',
 				'<div class="lead">{leadParagraph}</div>',
 				'<div class="description">{description}</div>',
-			'</div>',
-			'<h3>Arrangør</h3>'
+			'</div>'
 		],
-		items: [
-			{	
-				xtype:'toolbar',
-				title: "KvarteretApp",
-				docked:'top',
-				items: [ {xtype:'button', ui:'back',text:'back', cls:'backButton', action:"eventBack"} ],
-			}
-		]
+
     }
 });

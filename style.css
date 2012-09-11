@@ -1,3 +1,8 @@
+body {
+	line-height: 1.6;
+	background: #fff;
+}
+
 .left {
 	float: left;
 }
@@ -23,16 +28,21 @@
 }
 
 .lead {
+	padding: 12px;
 	font-size: 14px;
-	font-weight: bold;
+	font-weight: normal;
+	text-transform: uppercase;
 }
+	.lead br {
+		display: none;
+	}
 .description {
 	font-size: 14px;
 	font-weight: normal;
 }
 
 h1 {
-	background: red;
+	background: #E5190F;
 	padding: 20px 12px !important;
 	color: #fff;
 	text-transform: uppercase;
@@ -54,4 +64,10 @@ h2.black {
 	margin: 0 auto;
 	display: block;
 	max-width: 480px;
+}
+.black_background {
+	background: black;
+}
+#mainBar {
+	background: #E5190F !important;
 }

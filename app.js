@@ -38,7 +38,33 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('KvarteretApp.view.Main'));
+        Ext.Viewport.add({
+            xtype: 'titlebar',
+            id: 'mainBar',
+            docked: 'top',
+            html: '<img src="resources/icons/logo.png" alt="" />',
+            items: [
+                {
+                    xtype: 'button',
+                    action: 'mainMenu',
+                    iconCls: 'people',
+                    docked: 'right'
+                }
+            ]
+        });
+        // Ext.Viewport.add(Ext.create('KvarteretApp.view.Main'));
+        Ext.Viewport.add({
+              xtype:'eventList', 
+              id:'eventList'
+            },
+            {
+                xtype:'arrangerList',
+                id: 'arrangerList'
+            },
+            {
+                xtype: 'festivalList',
+                id: 'festivalList'
+            });
     },
 
     onUpdated: function() {

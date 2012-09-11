@@ -20,42 +20,40 @@ Ext.define('KvarteretApp.controller.Event', {
                     if(Ext.getCmp('event-' + selectedItem.getSelection()[0].data.id)) {
                     	stackForward(Ext.getCmp('event-' + selectedItem.getSelection()[0].data.id));
                     } else {
-	                    var event = Ext.create('KvarteretApp.view.Event', {
-	                        data: selectedItem.getSelection()[0].data,
-	                        id: 'event-' + selectedItem.getSelection()[0].data.id
-	                    });
 
+                    	// create wrapper for events
+                    	// var singleEventWrapper = Ext.create('KvarteretApp.view.SingleEventWrapper', {
+                    	// 	id: 'event-' + selectedItem.getSelection()[0].data.id,
+                    		
+                    	// });
+
+                    	// get festival data
 	                    if(selectedItem.getSelection()[0].data.festival_id) {
 	                    	var festivalStore = Ext.getStore('Festival');
 	                   		var festivalData = festivalStore.getAt( festivalStore.find("id", selectedItem.getSelection()[0].data.festival_id) ).data;
 	                    }
 
-	                    if(selectedItem.getSelection()[0].data.arranger_id) {
-	                    	console.log(selectedItem.getSelection()[0].data.arranger_id);
-	                    }
+	                    // get arranger data
+	                    // if(selectedItem.getSelection()[0].data.arranger_id) {
+	                    // 	var arrangerStore = Ext.getStore('Arranger');
+	                   	// 	var arrangerData = arrangerStore.getAt( arrangerStore.find("id", selectedItem.getSelection()[0].data.arranger_id) ).data;
+	                    // }
 
-	                    var arrangerStore = Ext.getStore('Arranger');
-	                    var arrangerData = arrangerStore.getAt( arrangerStore.find("id", selectedItem.getSelection()[0].data.arranger_id) ).data;
-
-	                    event.add({
-	                    	xtype: 'button',
-	                    	text: arrangerData.name,
-	                    	action: "openArranger",
-	                    	id: selectedItem.getSelection()[0].data.arranger_id
+	                    var event = Ext.create('KvarteretApp.view.Event', {
+	                    	data: selectedItem.getSelection()[0].data,
+	                    	flex: 1,
+	                    	id: 'event-' + selectedItem.getSelection()[0].data.id
 	                    });
 
-	                    // eventWrapper = Ext.getCmp('eventWrapper');
-	                    // eventWrapper.add(event);
-	                    // eventWrapper.setActiveItem(event);
+	                   
+	                    // add everything to wrapper
+	                    // singleEventWrapper.add(event);
 
-	                    // Ext.Viewport.add(event);
-	                                       
-	                    // make it active
-	                    // Ext.Viewport.setActiveItem(event);
+	                    // deselect item in list
+	                  	Ext.getCmp('eventList').deselectAll();
+
+	                  	// add to stack and display
 	                    stackForward(event);
-
-	                    eventList = Ext.getCmp('eventList');
-	                    eventList.deselectAll();
 	                }
                 }
             },

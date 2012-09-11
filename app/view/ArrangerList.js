@@ -3,9 +3,16 @@ Ext.define("KvarteretApp.view.ArrangerList", {
     xtype: 'arrangerList',
     config: {
         title: 'Arrangers',       
-        itemTpl: '<img src="{logoUrl}" style="width: auto;height:60px;" /><strong>{name}</strong>',
+        itemTpl: '{name}',
         store: 'Arranger',
-        sorters: 'name'
+        sorters: 'name',
+        items: [
+        	{ 
+        		xtype: 'panel',
+        		docked: 'top',
+        		html: '<h1 class="black_background text_center">Arrangers</h1>'
+        	}
+        ]
     }
 
 });
