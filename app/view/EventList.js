@@ -6,7 +6,7 @@ Ext.define("KvarteretApp.view.EventList", {
     config: {
         title: 'Events',       
         itemTpl: '<h2>{title}</h2>' +
-        		 '<small>{startDate} {startTime} - {endDate} {endTime}</small>',
+        		 '<small>{startTimeShort} - {category} @ {location}</small>',
         store: 'Event',
         cls: 'eventList',
 
