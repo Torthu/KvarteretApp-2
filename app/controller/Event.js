@@ -58,14 +58,9 @@ Ext.define('KvarteretApp.controller.Event', {
                 }
             },
 
-            'button[action=eventBack]':{
+            'button[action=done]':{
                 tap: function (selectedItem) {
                     
-                    // eventWrapper.remove(Ext.getCmp('event'));
-                    // eventWrapper.setActiveItem(eventList);
-                    // Ext.Viewport.remove(Ext.getCmp('event'));
-                    // Ext.Viewport.setActiveItem(Ext.getCmp('main'));
-
                     stackBack();
 
                 }

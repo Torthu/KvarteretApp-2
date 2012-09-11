@@ -42,14 +42,30 @@ Ext.application({
             xtype: 'titlebar',
             id: 'mainBar',
             docked: 'top',
-            html: '<img src="resources/icons/logo.png" alt="" />',
+            pack: 'justify',
             items: [
                 {
                     xtype: 'button',
                     action: 'mainMenu',
                     id: 'mainMenuButton',
                     text: 'menu',
-                    docked: 'right'
+                    align: 'left',
+
+                },
+                {
+                    xtype: 'panel',
+                    html: '<img src="resources/icons/logo.png" alt="" />',
+                    align: 'center',
+                    flex: 1
+
+                },
+                {
+                    xtype: 'button',
+                    action: 'done',
+                    id: 'doneButton',
+                    text: 'done',
+                    align: 'right'
+
                 }
             ]
         });
