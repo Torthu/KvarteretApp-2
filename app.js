@@ -10,7 +10,7 @@ Ext.application({
     ],
 
     controllers: ['Arranger', 'Event', 'Festival', 'Main'],
-    views: ['Arranger', 'ArrangerList', 'Event', 'EventList', 'Festival', 'FestivalList', 'MainMenu'],
+    views: ['Arranger', 'ArrangerList', 'SingleArrangerWrapper', 'SingleEventWrapper', 'Event', 'EventList', 'Festival', 'FestivalList', 'MainMenu'],
     models: ['Arranger', 'Event', 'Festival'],
     stores: ['Arranger', 'Event', 'Festival'],
     
@@ -37,55 +37,8 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-        // Initialize the main view
-        Ext.Viewport.add({
-            xtype: 'titlebar',
-            id: 'mainBar',
-            docked: 'top',
-            pack: 'justify',
-            items: [
-                {
-                    xtype: 'button',
-                    action: 'mainMenu',
-                    id: 'mainMenuButton',
-                    text: 'menu',
-                    align: 'left',
-
-                },
-                {
-                    xtype: 'panel',
-                    html: '<img src="resources/icons/logo.png" alt="" />',
-                    align: 'center',
-                    flex: 1
-
-                },
-                {
-                    xtype: 'button',
-                    action: 'done',
-                    id: 'doneButton',
-                    text: 'done',
-                    align: 'right'
-
-                }
-            ]
-        });
         // Ext.Viewport.add(Ext.create('KvarteretApp.view.Main'));
-        Ext.Viewport.add({
-              xtype:'eventList', 
-              id: 'eventList'
-            },
-            {
-                xtype:'arrangerList',
-                id: 'arrangerList'
-            },
-            {
-                xtype: 'festivalList',
-                id: 'festivalList'
-            },
-            {
-                xtype: 'mainMenu'
-            });
-    },
+    },  
 
     onUpdated: function() {
         Ext.Msg.confirm(

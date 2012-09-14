@@ -17,19 +17,19 @@ Ext.define("KvarteretApp.view.MainMenu", {
 	        	cls: 'menu_item' 
 	        },
 	        {
-	        	xtype: 'panel',
+	        	xtype: 'button',
 	        	html: 'Festivals',
 	        	action: 'openFestivalList',
 	        	cls: 'menu_item'   
 	        },
 	        {
-	        	xtype: 'panel',
+	        	xtype: 'button',
 	        	html: 'About Kvarteret',
 	        	action: 'openKvarteretInfo',
 	        	cls: 'menu_item'   
 	        },
 	        {
-	        	xtype: 'panel',
+	        	xtype: 'button',
 	        	html: 'About the app',
 	        	action: 'openAppInfo',
 	        	cls: 'menu_item'   

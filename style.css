@@ -85,3 +85,30 @@ h2.black {
 	right:-2px;
 	border-right: 1px solid blue;
 }
+
+#mainMenu .menu_item {
+	border-radius:0;
+	text-align: left !important;
+	background: #fff;
+	border:0;
+	border-bottom: 1px solid #ccc;
+	padding: 12px;
+}
+	#mainMenu .menu_item:active {
+		background: #ccc;
+	}
+	#mainMenu .menu_item .x-button-label {
+		text-align:left;
+		font-weight: normal;
+	}
+
+#doneButton {
+	background: -webkit-linear-gradient(top, #444 0%,#222 100%) !important;
+}
+
+.x-list-header {
+	background: #444 !important;
+	color: #fff !important;
+	border: 0 !important;
+	border-top: 1px solid #fff !important;
+}

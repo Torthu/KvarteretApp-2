@@ -4,6 +4,6 @@ Ext.define('KvarteretApp.store.Category', {
 
     config: {
         model: 'KvarteretApp.model.Category',
-        autoLoad: true
+        autoLoad: false
     }
 });

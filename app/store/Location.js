@@ -4,6 +4,6 @@ Ext.define('KvarteretApp.store.Location', {
 
     config: {
         model: 'KvarteretApp.model.Location',
-        autoLoad: true
+        autoLoad: false
     }
 });
