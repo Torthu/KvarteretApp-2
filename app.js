@@ -10,7 +10,7 @@ Ext.application({
     ],
 
     controllers: ['Arranger', 'Event', 'Festival', 'Main'],
-    views: ['Arranger', 'ArrangerList', 'SingleArrangerWrapper', 'SingleEventWrapper', 'Event', 'EventList', 'Festival', 'FestivalList', 'MainMenu'],
+    views: ['Arranger', 'ArrangerList', 'SingleArrangerWrapper', 'SingleEventWrapper', 'Event', 'EventList', 'Festival', 'FestivalList', 'MainMenu', 'TheApp', 'Kvarteret'],
     models: ['Arranger', 'Event', 'Festival'],
     stores: ['Arranger', 'Event', 'Festival'],
     

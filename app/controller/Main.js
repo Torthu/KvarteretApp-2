@@ -18,22 +18,8 @@ Ext.define('KvarteretApp.controller.Main', {
     	// }
 
     	// add initial views to Viewport
-    	 Ext.Viewport.add({
-            	xtype:'eventList', 
-            	id: 'eventList'
-            },
-            {
-                xtype:'arrangerList',
-                id: 'arrangerList'
-            },
-            {
-                xtype: 'festivalList',
-                id: 'festivalList'
-            },
-            {
-                xtype: 'mainMenu'
-            },
-            {
+    	 Ext.Viewport.add(
+    	 	{
 	            xtype: 'titlebar',
 	            id: 'mainBar',
 	            docked: 'top',
@@ -63,8 +49,32 @@ Ext.define('KvarteretApp.controller.Main', {
 
 	                }
 	            ]
-        });
+       		}
+       	);
 
+    	Ext.Viewport.add(
+    	 	{
+            	xtype:'eventList', 
+            	id: 'eventList'
+            }
+        );
+        Ext.Viewport.add(
+            {
+                xtype:'arrangerList',
+                id: 'arrangerList'
+            }
+        );
+        Ext.Viewport.add(
+            {
+                xtype: 'festivalList',
+                id: 'festivalList'
+            }
+        );
+        Ext.Viewport.add(
+            {
+                xtype: 'mainMenu'
+            }
+        );
     	this.control({
     		'button[action=mainMenu]': {
     			tap: function () {
