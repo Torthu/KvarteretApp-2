@@ -17,33 +17,105 @@ Ext.define('KvarteretApp.controller.Main', {
     	// 	Ext.getStore('Festival').destroy();
     	// }
 
+    	// add initial views to Viewport
+    	 Ext.Viewport.add({
+            	xtype:'eventList', 
+            	id: 'eventList'
+            },
+            {
+                xtype:'arrangerList',
+                id: 'arrangerList'
+            },
+            {
+                xtype: 'festivalList',
+                id: 'festivalList'
+            },
+            {
+                xtype: 'mainMenu'
+            },
+            {
+	            xtype: 'titlebar',
+	            id: 'mainBar',
+	            docked: 'top',
+	            pack: 'justify',
+	            items: [
+	                {
+	                    xtype: 'button',
+	                    action: 'mainMenu',
+	                    id: 'mainMenuButton',
+	                    text: 'menu',
+	                    align: 'left',
+
+	                },
+	                {
+	                    xtype: 'panel',
+	                    html: '<img src="resources/icons/logo.png" alt="" />',
+	                    align: 'center',
+	                    flex: 1
+
+	                },
+	                {
+	                    xtype: 'button',
+	                    action: 'done',
+	                    id: 'doneButton',
+	                    text: 'done',
+	                    align: 'right'
+
+	                }
+	            ]
+        });
+
     	this.control({
     		'button[action=mainMenu]': {
     			tap: function () {
     				openMenu();
     				
     			}
-    		}
+    		},
+    		'button[action=openKvarteretInfo]': {
+                tap: function () {
+                    stackForward(Ext.create('KvarteretApp.view.Kvarteret'));
+                }
+            },
+            'button[action=openAppInfo]': {
+                tap: function () {
+                    stackForward(Ext.create('KvarteretApp.view.TheApp'));
+                }
+            },
+            'button[action=openFestivalList]': {
+                tap: function () {
+                    stackForward(Ext.getCmp('festivalList'));
+                }
+            }
 	    });
     }
 
 });
 
-KvarteretApp.Stack = ['mainMenu', 'arrangerList', 'eventList'];
+KvarteretApp.Stack = ['arrangerList', 'eventList'];
 
 function openMenu() {
 	// is mainmenu the active card?
 	if(KvarteretApp.Stack[KvarteretApp.Stack.length-1] != "mainMenu") {
 		// is mainmenu in the stack at all?
-		if(!inStack('mainMenu')) {
+
+		if(Ext.getCmp('mainMenu') == undefined) {
+			console.log('not in stack');
 			stackForward(Ext.create('KvarteretApp.view.MainMenu')); // add mainmenu
+
 		} else {
+			console.log(Ext.getCmp('mainMenu'));
 			stackForward(Ext.getCmp('mainMenu')); // set mainmenu as active
+
 		}
 	} else {
 		stackBack(); // remove mainmenu
 	}
 	
+}
+
+function showStack() {
+	console.log(KvarteretApp.Stack);
 }
 
 function inStack(viewId) {
@@ -53,9 +125,17 @@ function inStack(viewId) {
 function stackForward(view) {
 	console.log('KvarteretApp.controller.Main.stackForward: going forward');
 
+	if(view == undefined) {
+		console.error('ERROR: View sent to stackForward was undefined.')
+	}
+
 	// add view to viewport
 	if(!inStack(view.getId())) {
 		Ext.Viewport.add(view);
+	}
+
+	if(view.getId() != "eventList" && view.getId() != "arrangerList") {
+
 	}
 
 	// add view to stack
@@ -79,7 +159,7 @@ function stackBack(view) {
 	KvarteretApp.Stack.pop();
 
 	// check if view is still in stack, if not: remove
-	if(inStack(viewToRemove)) {
+	if(inStack(viewToRemove) && viewToRemove != 'arrangerList' && viewToRemove != 'eventList') {
 		console.log('Trying to remove view with id: ' + viewToRemove);
 		Ext.Viewport.remove(Ext.getCmp(viewToRemove));
 
