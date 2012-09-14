@@ -11,8 +11,9 @@ Ext.define('KvarteretApp.model.Event', {
         	'linkout', // ?
         	'startDate',
             {name: 'startDateString', type: 'date',  convert: function (v, record) {
-                startDate = new Date(record.data.startDate);
-
+                // startDate = new Date(record.data.startDate); (bugged in iOS, shame on you, Apple!)
+                // console.log(record.data.startDate + ": " + record.data.startDate.substr(0,4) + " " + record.data.startDate.substr(5,2) + " " + record.data.startDate.substr(8,2));
+                startDate = new Date(record.data.startDate.substr(0,4), record.data.startDate.substr(5,2), record.data.startDate.substr(8,2));
                 return startDate.toLocaleDateString();
             }},
             'startTime',
@@ -26,7 +27,8 @@ Ext.define('KvarteretApp.model.Event', {
                     return "";
                 }
 
-                var date = new Date(record.data.startDate);
+                // var date = new Date(record.data.startDate);
+                var date = new Date(record.data.endDate.substr(0,4), record.data.endDate.substr(5,2), record.data.endDate.substr(8,2));
                 return date.toLocaleDateString();
             }},
         	'endTime',
