@@ -66,7 +66,7 @@ Ext.define('KvarteretApp.model.Event', {
         	{name: 'covercharge', defaultValue: 'uspesifisert'},
             {name: 'primaryPictureUrl', type:'string', convert: function (v, record) {
                 if(record.data.primaryPicture) {
-                    return '<img src="' + record.data.primaryPicture.url + '" alt="" style="width: auto" />';
+                    return '<div style="width: 100%;"><img src="' + record.data.primaryPicture.url + '" alt="" style="max-width:100%;height: auto;" /></div>';
                 }
                 return '';
             }}
