@@ -18,13 +18,20 @@ Ext.define("KvarteretApp.view.Event", {
 					'{primaryPictureUrl}',
 					'<h1 class="text_center">{title}</h1>',
 					'<div class="date text_center">{startDateString} kl. {startTimeShort} - {endDateString} {endTimeShort}</div>',
-				'</div>',
+				    '<div class="location text_center black">{categoriesString} @ {locationName}</div>',
+                '</div>',
 				'<div class="left half text_center meta">CC: {covercharge}</div>',
 				'<div class="right half text_center meta">Age: {age_limit}</div>',
 				'<div class="lead">{leadParagraph}</div>',
 				'<div class="description">{description}</div>',
+                '<div class="arranger">{arrangerName}</div>',
 			'</div>'
 		],
+
+        
+        // categoriesString
+        // arranger_id
+        // commonLocation
 
     }
 });
