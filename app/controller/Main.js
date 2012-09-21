@@ -25,12 +25,13 @@ Ext.define('KvarteretApp.controller.Main', {
 	            docked: 'top',
 	            pack: 'justify',
 	            items: [
+	                
 	                {
 	                    xtype: 'button',
-	                    action: 'mainMenu',
-	                    id: 'mainMenuButton',
-	                    text: 'menu',
-	                    align: 'left',
+	                    action: 'done',
+	                    id: 'doneButton',
+	                    text: 'done',
+	                    align: 'left'
 
 	                },
 	                {
@@ -42,12 +43,12 @@ Ext.define('KvarteretApp.controller.Main', {
 	                },
 	                {
 	                    xtype: 'button',
-	                    action: 'done',
-	                    id: 'doneButton',
-	                    text: 'done',
-	                    align: 'right'
+	                    action: 'mainMenu',
+	                    id: 'mainMenuButton',
+	                    text: 'menu',
+	                    align: 'right',
 
-	                }
+	                },
 	            ]
        		}
        	);

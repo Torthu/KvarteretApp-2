@@ -9713,22 +9713,23 @@ body {
   width: 50%;
 }
 .meta {
-  border-bottom: 1px solid #ccc;
   padding: 12px;
-  margin-bottom: 24px;
 }
-.meta.right {
-  border-left: 1px solid #ccc;
-}
+  .meta.right {
+    border-left: 1px solid #ccc;
+  }
 .wrapper p {
   
 }
 
 .lead {
   padding: 12px;
+  padding-top: 24px;
   font-size: 14px;
   font-weight: normal;
   text-transform: uppercase;
+  clear:both;
+  border-top: 1px solid #ccc;
 }
   .lead br {
     display: none;
@@ -9777,14 +9778,14 @@ h2.black {
   background: none;
   border-radius: 0;
   border: none;
-  border-right: 1px solid #AC211A;
+  border-left: 1px solid #AC211A;
   position:relative;
 }
 #mainMenuButton:after {
   position: absolute;
   height: 100%;
-  right:-2px;
-  border-right: 1px solid blue;
+  left:-2px;
+  border-left: 1px solid blue;
 }
 
 #mainMenu .menu_item {
