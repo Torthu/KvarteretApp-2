@@ -54,7 +54,13 @@ function openArranger(arrangerId) {
 
                 localEventStore.add(records);
 
-                localEventStore.filter("arranger_id", arrangerId);
+                var arrangerFilter = new Ext.util.Filter({
+                    property: 'arranger_id',
+                    value   : arrangerId,
+                    exactMatch: true
+                });
+
+                localEventStore.filter(arrangerFilter);
             } else {
                 console.log('Using existing store: ' + localEventStore.getId());
             }
